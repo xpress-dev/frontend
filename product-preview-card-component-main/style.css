@@ -1,0 +1,165 @@
+/* ### Primary
+
+- Dark cyan: hsl(158, 36%, 37%)
+- Cream: hsl(30, 38%, 92%)
+
+### Neutral
+
+- Very dark blue: hsl(212, 21%, 14%)
+- Dark grayish blue: hsl(228, 12%, 48%)
+- White: hsl(0, 0%, 100%)
+
+Fraunces
+Montserrat
+*/
+
+/* Custom Variables */
+:root {
+  /* Primary Colors */
+  --primary-clr-cyan: hsl(158, 36%, 37%);
+  --primary-clr-dark-cyan: hsl(157, 51%, 16%);
+  --primary-clr-cream: hsl(30, 38%, 92%);
+
+  /* Neutral Colors */
+  --neutral-clr-dark-blue: hsl(212, 21%, 14%);
+  --neutral-clr-gray-blue: hsl(228, 12%, 48%);
+  --neutral-clr-white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --font-family-serif: "Fraunces";
+  --font-family-sans: "Montserrat";
+  /* Font Sizes */
+  --font-size-large: 2.5rem;
+  --font-size-medium: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-clr-cream);
+  height: 100vh;
+  width: 100vw;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 46rem;
+}
+
+.card__image--desktop {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  flex: 1;
+}
+
+.card__image--mobile {
+  display: none;
+}
+
+.card__information {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--neutral-clr-white);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 2rem;
+  flex: 1;
+}
+
+.card__type {
+  text-transform: uppercase;
+  font-family: var(--font-family-sans);
+  letter-spacing: 5px;
+  color: var(--neutral-clr-gray-blue);
+}
+
+.card__name {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-large);
+  line-height: 1;
+  color: var(--neutral-clr-dark-blue);
+}
+
+.card__description {
+  font-family: var(--font-family-sans);
+  color: var(--neutral-clr-gray-blue);
+  line-height: 2;
+  font-size: var(--font-size-medium);
+}
+
+.card__price {
+  font-family: var(--font-family-serif);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card__price--main {
+  font-size: var(--font-size-large);
+  color: var(--primary-clr-cyan);
+}
+
+.card__price--discounted {
+  font-size: var(--font-size-medium);
+  color: var(--neutral-clr-gray-blue);
+  text-decoration: line-through;
+}
+
+.card__btn:link,
+.card__btn:visited {
+  width: 100%;
+
+  text-decoration: none;
+  font-family: var(--font-family-sans);
+  color: var(--neutral-clr-white);
+  background-color: var(--primary-clr-cyan);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.card__btn:hover,
+.card__btn:active {
+  background-color: var(--primary-clr-dark-cyan);
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    max-width: 40rem;
+  }
+
+  .card__image--desktop {
+    display: none;
+  }
+
+  .card__image--mobile {
+    display: block;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .card__information {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+  }
+}
